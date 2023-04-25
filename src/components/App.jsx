@@ -7,11 +7,12 @@ export class App extends Component {
   state = {
     contacts: [],
     name: '',
+    number: '',
   };
 
   handleSubmit = event => {
     const id = nanoid();
-
+    const number = event.number;
     const name = event.name;
 
     const contactsLists = [...this.state.contacts];
@@ -19,7 +20,7 @@ export class App extends Component {
     if (contactsLists.findIndex(contact => name === contact.name) !== -1) {
       alert(`${name} is already in contacts.`);
     } else {
-      contactsLists.push({ name, id });
+      contactsLists.push({ name, id, number });
     }
 
     this.setState({ contacts: contactsLists });
@@ -31,7 +32,10 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <Phonebook handleSubmit={this.handleSubmit} />
         <h2>Contacts</h2>
-        <PhoneBookList contacts={this.state.contacts} />
+        <PhoneBookList
+          contacts={this.state.contacts}
+          number={this.state.number}
+        />
       </div>
     );
   }
