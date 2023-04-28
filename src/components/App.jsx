@@ -44,6 +44,12 @@ export class App extends Component {
     });
   };
 
+  handleDelete = id => {
+    this.setState(State => ({
+      contacts: State.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
   render() {
     const { filter } = this.state;
     return (
@@ -52,7 +58,11 @@ export class App extends Component {
         <Phonebook handleSubmit={this.handleSubmit} />
         <h2>Contacts</h2>
         <Filter filter={filter} handleChange={this.handleChange} />
-        <PhoneBookList contacts={this.fitered()} number={this.state.number} />
+        <PhoneBookList
+          contacts={this.fitered()}
+          number={this.state.number}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }
