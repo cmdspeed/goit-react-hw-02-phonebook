@@ -1,6 +1,9 @@
+import propTypes from 'prop-types';
+import css from './Filter.module.css';
+
 export const Filter = ({ filter, handleChange }) => (
   <div>
-    <label>Find contacts by Name </label>
+    <label className={css.inputName}>Find contacts by Name </label>
     <input
       type="text"
       name="filter"
@@ -10,3 +13,8 @@ export const Filter = ({ filter, handleChange }) => (
     />
   </div>
 );
+
+Filter.propTypes = {
+  filter: propTypes.string,
+  handleChange: propTypes.func,
+};

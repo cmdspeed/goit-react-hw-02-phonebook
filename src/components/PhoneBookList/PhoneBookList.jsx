@@ -1,3 +1,5 @@
+import propTypes from 'prop-types';
+
 export const PhoneBookList = ({ contacts, handleDelete }) => (
   <ul>
     {contacts.map((contact, id) => (
@@ -10,3 +12,8 @@ export const PhoneBookList = ({ contacts, handleDelete }) => (
     ))}
   </ul>
 );
+
+PhoneBookList.propTypes = {
+  contacts: propTypes.array,
+  handleDelete: propTypes.func,
+};

@@ -51,7 +51,7 @@ export class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    const { filter, number } = this.state;
     return (
       <div>
         <h1>Phonebook</h1>
@@ -60,7 +60,7 @@ export class App extends Component {
         <Filter filter={filter} handleChange={this.handleChange} />
         <PhoneBookList
           contacts={this.fitered()}
-          number={this.state.number}
+          number={number}
           handleDelete={this.handleDelete}
         />
       </div>
